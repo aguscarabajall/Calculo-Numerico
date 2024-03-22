@@ -10,7 +10,7 @@ function matrices
 triangularsuperior=trs(M)
 diagonal=d(M)
 triangularinferior=tri(M)
-[maximo,posicion]=maxpo(M)
+[maximo,fila,columna]=maxpo(M)
 end
 
   function triangularsuperior=trs(A)
@@ -43,14 +43,16 @@ end
     endfor
   endfunction
 
-  function [maximo,posicion]=maxpo(A)
+  function [maximo,fila,columna]=maxpo(A)
     maximo=A(1,1);
-    posicion=(1,1);
+    fila=1;
+    columna=1;
     for i=1:3
       for j=1:3
         if maximo<A(i,j)
           maximo=A(i,j);
-          posicion=i,j;
+          fila=i;
+          columna=j;
         endif
       endfor
     endfor
